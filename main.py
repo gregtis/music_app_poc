@@ -13,9 +13,12 @@ def main():
     pygame.init()
     pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=512)
 
-    on_pi = os.environ.get("SDL_VIDEODRIVER") == "fbcon"
-    flags = pygame.FULLSCREEN if on_pi else 0
-    screen = pygame.display.set_mode((config.SCREEN_WIDTH, config.SCREEN_HEIGHT), flags)
+    on_pi = os.environ.get("SDL_VIDEODRIVER") in ("fbcon", "kmsdrm")
+    if on_pi:
+        screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+        config.SCREEN_WIDTH, config.SCREEN_HEIGHT = screen.get_size()
+    else:
+        screen = pygame.display.set_mode((config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
     pygame.display.set_caption("Music App")
     pygame.mouse.set_visible(not on_pi)
 

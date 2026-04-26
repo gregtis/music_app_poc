@@ -4,11 +4,11 @@ services:
     restart: unless-stopped
     privileged: true
     devices:
-      - /dev/fb0:/dev/fb0
+      - /dev/dri/card0:/dev/dri/card0
+      - /dev/dri/renderD128:/dev/dri/renderD128
       - /dev/snd:/dev/snd
     volumes:
       - /dev/input:/dev/input
     environment:
-      - SDL_VIDEODRIVER=fbcon
-      - SDL_FBDEV=/dev/fb0
+      - SDL_VIDEODRIVER=kmsdrm
       - SDL_AUDIODRIVER=alsa
