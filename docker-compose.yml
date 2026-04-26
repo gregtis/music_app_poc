@@ -14,3 +14,4 @@ services:
       - SDL_AUDIODRIVER=alsa
       - SDL_DYNAMIC_API=/usr/lib/aarch64-linux-gnu/libSDL2-2.0.so.0
       - SDL_VIDEO_KMSDRM_DEVICE_INDEX=1
+      - PYTHONUNBUFFERED=1

@@ -19,6 +19,7 @@ def main():
         config.SCREEN_WIDTH, config.SCREEN_HEIGHT = screen.get_size()
     else:
         screen = pygame.display.set_mode((config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
+    print(f"Display init OK: {config.SCREEN_WIDTH}x{config.SCREEN_HEIGHT}", flush=True)
     pygame.display.set_caption("Music App")
     pygame.mouse.set_visible(not on_pi)
 
