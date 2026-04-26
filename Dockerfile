@@ -7,6 +7,9 @@ RUN apt-get update && apt-get install -y \
     libsdl2-ttf-2.0-0 \
     libdrm2 \
     libgbm1 \
+    libegl1 \
+    libgl1-mesa-dri \
+    libgles2 \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 

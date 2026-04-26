@@ -15,8 +15,10 @@ def main():
 
     on_pi = os.environ.get("SDL_VIDEODRIVER") in ("fbcon", "kmsdrm")
     if on_pi:
-        screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-        config.SCREEN_WIDTH, config.SCREEN_HEIGHT = screen.get_size()
+        screen = pygame.display.set_mode(
+            (config.SCREEN_WIDTH, config.SCREEN_HEIGHT),
+            pygame.FULLSCREEN | pygame.SCALED
+        )
     else:
         screen = pygame.display.set_mode((config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
     print(f"Display init OK: {config.SCREEN_WIDTH}x{config.SCREEN_HEIGHT}", flush=True)
