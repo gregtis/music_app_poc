@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y \
     libdrm2 \
     libgbm1 \
     libegl1 \
+    libgl1-mesa-dri \
+    libgles2 \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
