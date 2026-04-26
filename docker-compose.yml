@@ -2,6 +2,7 @@ services:
   music-app:
     build: .
     restart: unless-stopped
+    privileged: true
     devices:
       - /dev/fb0:/dev/fb0
       - /dev/snd:/dev/snd
