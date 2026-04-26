@@ -1,0 +1,13 @@
+services:
+  music-app:
+    build: .
+    restart: unless-stopped
+    devices:
+      - /dev/fb0:/dev/fb0
+      - /dev/snd:/dev/snd
+    volumes:
+      - /dev/input:/dev/input
+    environment:
+      - SDL_VIDEODRIVER=fbcon
+      - SDL_FBDEV=/dev/fb0
+      - SDL_AUDIODRIVER=alsa
