@@ -12,3 +12,4 @@ services:
     environment:
       - SDL_VIDEODRIVER=kmsdrm
       - SDL_AUDIODRIVER=alsa
+      - SDL_DYNAMIC_API=/usr/lib/aarch64-linux-gnu/libSDL2-2.0.so.0
