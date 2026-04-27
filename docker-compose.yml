@@ -4,15 +4,12 @@ services:
     restart: unless-stopped
     privileged: true
     devices:
-      - /dev/dri/card1:/dev/dri/card1
-      - /dev/dri/renderD128:/dev/dri/renderD128
+      - /dev/fb0:/dev/fb0
+      - /dev/tty1:/dev/tty1
       - /dev/snd:/dev/snd
     volumes:
       - /dev/input:/dev/input
     environment:
-      - SDL_VIDEODRIVER=kmsdrm
+      - SDL_VIDEODRIVER=offscreen
       - SDL_AUDIODRIVER=alsa
-      - SDL_DYNAMIC_API=/usr/lib/aarch64-linux-gnu/libSDL2-2.0.so.0
-      - SDL_VIDEO_KMSDRM_DEVICE_INDEX=1
-      - SDL_RENDER_DRIVER=software
       - PYTHONUNBUFFERED=1
