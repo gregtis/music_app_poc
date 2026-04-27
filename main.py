@@ -15,12 +15,15 @@ def main():
 
     on_pi = os.environ.get("SDL_VIDEODRIVER") in ("fbcon", "kmsdrm")
     if on_pi:
-        screen = pygame.display.set_mode(
-            (config.SCREEN_WIDTH, config.SCREEN_HEIGHT),
-            pygame.FULLSCREEN | pygame.SCALED
-        )
+        # Native fullscreen — SDL_GetWindowSurface backed by GBM/DRM directly.
+        # pygame.SCALED uses SDL_Renderer which doesn't reach the scanout buffer on kmsdrm.
+        display = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+        screen = pygame.Surface((config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
+        print(f"Native display: {display.get_width()}x{display.get_height()}", flush=True)
     else:
-        screen = pygame.display.set_mode((config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
+        display = pygame.display.set_mode((config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
+        screen = display
+
     print(f"Display init OK: {config.SCREEN_WIDTH}x{config.SCREEN_HEIGHT}", flush=True)
     pygame.display.set_caption("Music App")
     pygame.mouse.set_visible(not on_pi)
@@ -50,6 +53,10 @@ def main():
             home.draw()
         else:
             char_screen.draw()
+
+        if on_pi:
+            scaled = pygame.transform.scale(screen, display.get_size())
+            display.blit(scaled, (0, 0))
 
         pygame.display.flip()
         clock.tick(30)
