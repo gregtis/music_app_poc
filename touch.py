@@ -36,7 +36,7 @@ def find_touchscreen():
     return None
 
 
-def _reader(device):
+def _reader(device, use_mt):
     global _touch_x_raw, _touch_y_raw
 
     for event in device.read_loop():
@@ -45,12 +45,12 @@ def _reader(device):
                 _touch_x_raw = event.value
             elif event.code in (ecodes.ABS_MT_POSITION_Y, ecodes.ABS_Y):
                 _touch_y_raw = event.value
-            elif event.code == ecodes.ABS_MT_TRACKING_ID and event.value == -1:
+            elif use_mt and event.code == ecodes.ABS_MT_TRACKING_ID and event.value == -1:
                 x = _map(_touch_x_raw, _x_min, _x_max, 0, _screen_w - 1)
                 y = _map(_touch_y_raw, _y_min, _y_max, 0, _screen_h - 1)
                 _tap_queue.put((x, y))
         elif event.type == ecodes.EV_KEY:
-            if event.code == ecodes.BTN_TOUCH and event.value == 0:
+            if not use_mt and event.code == ecodes.BTN_TOUCH and event.value == 0:
                 x = _map(_touch_x_raw, _x_min, _x_max, 0, _screen_w - 1)
                 y = _map(_touch_y_raw, _y_min, _y_max, 0, _screen_h - 1)
                 _tap_queue.put((x, y))
@@ -68,14 +68,20 @@ def init(screen_w, screen_h):
         return False
 
     caps = device.capabilities()
+    abs_codes = set()
     if ecodes.EV_ABS in caps:
         for code, info in caps[ecodes.EV_ABS]:
+            abs_codes.add(code)
             if code in (ecodes.ABS_MT_POSITION_X, ecodes.ABS_X):
                 _x_min, _x_max = info.min, info.max
             elif code in (ecodes.ABS_MT_POSITION_Y, ecodes.ABS_Y):
                 _y_min, _y_max = info.min, info.max
 
-    t = threading.Thread(target=_reader, args=(device,), daemon=True)
+    # Use MT tracking-ID lift for multitouch devices; BTN_TOUCH for single-touch.
+    # Using both causes every tap to queue twice (double-firing).
+    use_mt = ecodes.ABS_MT_TRACKING_ID in abs_codes
+
+    t = threading.Thread(target=_reader, args=(device, use_mt), daemon=True)
     t.start()
     print(f"Touch: {device.name} ({device.path})  x={_x_min}–{_x_max}  y={_y_min}–{_y_max}")
     return True
