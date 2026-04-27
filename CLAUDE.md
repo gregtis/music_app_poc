@@ -66,13 +66,16 @@ music_app_poc/
 ## Key Decisions
 
 **Python + pygame over Node/Electron or C++/SDL2**
-Pygame runs directly on the Linux framebuffer via `SDL_VIDEODRIVER=fbcon`. It handles touch input, audio mixing, and 2D rendering in one library with minimal setup. Right choice for a Pi with no desktop.
+Pygame renders to a software surface, which is written directly to `/dev/fb0` each frame. It handles touch input, audio mixing, and 2D rendering in one library with minimal setup. Right choice for a Pi with no desktop.
+
+**Display: offscreen SDL + direct /dev/fb0 write — do not change this**
+Pi 5 uses KMS/DRM. SDL2's kmsdrm driver unconditionally enables `SDL_WINDOW_OPENGL` when EGL is present, which makes `SDL_GetWindowSurface` return NULL and silently drops all rendered frames. The fix: `SDL_VIDEODRIVER=offscreen` renders to CPU memory; raw 16-bit pixels are written to `/dev/fb0` (the DRM FBDEV compat layer, 1024×600 RGB565) each frame. `/dev/tty1` is switched to `KD_GRAPHICS` mode at startup to suppress the kernel terminal cursor. Do not revert to kmsdrm — it does not work.
 
 **Music bundled in the image, not volume-mounted**
 Simplicity wins. No path management on the Pi, no missing files, no setup steps beyond `docker compose up -d`. Trade-off: larger image size.
 
-**No privileged Docker mode**
-Devices are passed through explicitly via `devices:` in `docker-compose.yml`. Avoids granting the container full hardware access unnecessarily.
+**privileged: true in Docker**
+Required so the container can switch `/dev/tty1` to KD_GRAPHICS mode (suppresses console cursor overdraw on the framebuffer).
 
 **Songs cover both eras and remixes**
 Each character has 3 MP3s that may span different game soundtracks (OoT vs BotW) and/or remix vs original. The player UI lets you cycle through them. No need to distinguish "era" vs "remix" in the UI — they're just songs.
@@ -105,7 +108,7 @@ Clean, simple, kid-friendly. No ambient music or screensaver to add complexity.
 1. **Do not add features beyond the MVP list above.** No favorites, no volume slider, no settings screen, no network features unless the user explicitly asks.
 2. **Do not switch the stack.** pygame on Python is the chosen renderer. Do not suggest Electron, Qt, Tkinter, or web-based alternatives.
 3. **Extensibility lives in `config.py`.** Adding characters or songs = editing config, not restructuring code.
-4. **No desktop environment.** Do not write code that depends on X11, Wayland, or a display server. `SDL_VIDEODRIVER=fbcon` must be set.
+4. **No desktop environment.** Do not write code that depends on X11, Wayland, or a display server. `SDL_VIDEODRIVER=offscreen` with direct `/dev/fb0` writes is the display path — do not switch to kmsdrm, fbcon, or any other driver.
 5. **Touch input is evdev, not mouse.** Handle touch via `/dev/input/event5` using pygame's evdev support or direct evdev reading — do not assume a mouse cursor exists.
 6. **Keep it kid-friendly and Nintendo-flavored.** Big tap targets, bold colors, simple navigation. No text-heavy UI.
 7. **Deployment is always `sudo docker compose up -d` on the Pi.** Do not introduce steps that break this workflow.
