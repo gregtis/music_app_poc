@@ -49,7 +49,7 @@ class HomeScreen:
     def draw(self):
         self.screen.fill(BG)
 
-        title = self.font_title.render("Choose Your Character", True, WHITE)
+        title = self.font_title.render("Select a Game Series", True, WHITE)
         self.screen.blit(title, ((config.SCREEN_WIDTH - title.get_width()) // 2, 18))
 
         for card in self.cards:
@@ -70,9 +70,11 @@ class HomeScreen:
                      rect.centery - initial.get_height() // 2 - 15),
                 )
 
-            name = self.font_name.render(char["name"], True, WHITE)
-            self.screen.blit(
-                name,
-                (rect.centerx - name.get_width() // 2,
-                 rect.bottom - name.get_height() - 10),
-            )
+            lines = char["name"].split("\n")
+            line_surfs = [self.font_name.render(l, True, WHITE) for l in lines]
+            line_h = line_surfs[0].get_height()
+            total_h = line_h * len(line_surfs)
+            y_start = rect.bottom - total_h - 10
+            for surf in line_surfs:
+                self.screen.blit(surf, (rect.centerx - surf.get_width() // 2, y_start))
+                y_start += line_h

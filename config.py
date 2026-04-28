@@ -4,7 +4,7 @@ SCREEN_HEIGHT = 480
 CHARACTERS = [
     {
         "id": "mario",
-        "name": "Mario",
+        "name": "Super Mario",
         "color": (220, 50, 50),
         "image": "assets/images/characters/mario.png",
         "songs": [
@@ -15,7 +15,7 @@ CHARACTERS = [
     },
     {
         "id": "link",
-        "name": "Link",
+        "name": "The Legend of\nZelda",
         "color": (50, 160, 60),
         "image": "assets/images/characters/link.png",
         "songs": [
@@ -26,7 +26,7 @@ CHARACTERS = [
     },
     {
         "id": "inkling_girl",
-        "name": "Inkling Girl",
+        "name": "Splatoon",
         "color": (220, 80, 200),
         "image": "assets/images/characters/inkling_girl.png",
         "songs": [

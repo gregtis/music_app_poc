@@ -82,9 +82,14 @@ class CharacterScreen:
         self.screen.blit(back, (self.back_rect.centerx - back.get_width() // 2,
                                 self.back_rect.centery - back.get_height() // 2))
 
-        # Character name
-        name = self.font_char.render(self.character["name"], True, color)
-        self.screen.blit(name, (w // 2 - name.get_width() // 2, 78))
+        # Series name (supports \n in config)
+        lines = self.character["name"].split("\n")
+        line_surfs = [self.font_char.render(l, True, color) for l in lines]
+        line_h = line_surfs[0].get_height()
+        y = 78
+        for surf in line_surfs:
+            self.screen.blit(surf, (w // 2 - surf.get_width() // 2, y))
+            y += line_h
 
         # Song title
         title = self.font_song.render(song["title"], True, WHITE)
