@@ -8,6 +8,8 @@ import config
 import touch
 from screens.home import HomeScreen
 from screens.character import CharacterScreen
+from screens.landing import LandingScreen
+from screens.quiz import QuizScreen
 
 KDSETMODE = 0x4B3A
 KD_GRAPHICS = 0x01
@@ -76,9 +78,11 @@ def main():
         touch.init(config.SCREEN_WIDTH, config.SCREEN_HEIGHT)
 
         clock = pygame.time.Clock()
+        landing = LandingScreen(screen)
         home = HomeScreen(screen)
-        current = "home"
+        current = "landing"
         char_screen = None
+        quiz_screen = None
 
         while True:
             for event in pygame.event.get():
@@ -87,16 +91,22 @@ def main():
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                     return
                 elif event.type == pygame.MOUSEBUTTONUP:
-                    current, char_screen = _route(event.pos, current, home, char_screen, screen)
+                    current, char_screen, quiz_screen = _route(
+                        event.pos, current, landing, home, char_screen, quiz_screen, screen)
 
             tap = touch.get_tap()
             if tap:
-                current, char_screen = _route(tap, current, home, char_screen, screen)
+                current, char_screen, quiz_screen = _route(
+                    tap, current, landing, home, char_screen, quiz_screen, screen)
 
-            if current == "home":
+            if current == "landing":
+                landing.draw()
+            elif current == "home":
                 home.draw()
-            else:
+            elif current == "character":
                 char_screen.draw()
+            elif current == "quiz":
+                quiz_screen.draw()
 
             if on_pi:
                 scaled = pygame.transform.scale(screen, (fb_w, fb_h))
@@ -116,17 +126,28 @@ def main():
         pygame.quit()
 
 
-def _route(pos, current, home, char_screen, screen):
-    if current == "home":
+def _route(pos, current, landing, home, char_screen, quiz_screen, screen):
+    if current == "landing":
+        result = landing.handle_tap(pos)
+        if result == "browse":
+            return "home", None, None
+        if result == "quiz":
+            return "quiz", None, QuizScreen(screen)
+    elif current == "home":
         char = home.handle_tap(pos)
         if char:
-            return "character", CharacterScreen(screen, char)
-    else:
+            return "character", CharacterScreen(screen, char), None
+    elif current == "character":
         result = char_screen.handle_tap(pos)
         if result == "back":
             char_screen.stop()
-            return "home", None
-    return current, char_screen
+            return "home", None, None
+    elif current == "quiz":
+        result = quiz_screen.handle_tap(pos)
+        if result == "home":
+            quiz_screen.stop()
+            return "landing", None, None
+    return current, char_screen, quiz_screen
 
 
 if __name__ == "__main__":
