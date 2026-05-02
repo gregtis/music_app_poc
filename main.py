@@ -134,9 +134,11 @@ def _route(pos, current, landing, home, char_screen, quiz_screen, screen):
         if result == "quiz":
             return "quiz", None, QuizScreen(screen)
     elif current == "home":
-        char = home.handle_tap(pos)
-        if char:
-            return "character", CharacterScreen(screen, char), None
+        result = home.handle_tap(pos)
+        if result == "back":
+            return "landing", None, None
+        if result:
+            return "character", CharacterScreen(screen, result), None
     elif current == "character":
         result = char_screen.handle_tap(pos)
         if result == "back":

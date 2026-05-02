@@ -32,6 +32,8 @@ class QuizScreen:
     def _build_layout(self):
         w, h = config.SCREEN_WIDTH, config.SCREEN_HEIGHT
 
+        self.back_rect = pygame.Rect(20, 15, 110, 46)
+
         btn_w, btn_h = 220, 90
         gap = 20
         total_w = 3 * btn_w + 2 * gap
@@ -57,6 +59,8 @@ class QuizScreen:
 
     def handle_tap(self, pos):
         if self.state == "asking":
+            if self.back_rect.collidepoint(pos):
+                return "home"
             for i, rect in enumerate(self.option_rects):
                 if rect.collidepoint(pos):
                     if self.options[i]["id"] == self.answer_series["id"]:
@@ -77,6 +81,11 @@ class QuizScreen:
         w, h = config.SCREEN_WIDTH, config.SCREEN_HEIGHT
 
         if self.state == "asking":
+            pygame.draw.rect(self.screen, (55, 55, 75), self.back_rect, border_radius=8)
+            back = self.font_btn.render("< Back", True, WHITE)
+            self.screen.blit(back, (self.back_rect.centerx - back.get_width() // 2,
+                                    self.back_rect.centery - back.get_height() // 2))
+
             prompt = self.font_prompt.render("Which game series is this song from?", True, WHITE)
             self.screen.blit(prompt, (w // 2 - prompt.get_width() // 2, 30))
 

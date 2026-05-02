@@ -14,6 +14,8 @@ class HomeScreen:
         self.font_title = pygame.font.SysFont("monospace", 34, bold=True)
         self.font_name = pygame.font.SysFont("monospace", 26, bold=True)
         self.font_initial = pygame.font.SysFont("monospace", 80, bold=True)
+        self.font_label = pygame.font.SysFont("monospace", 20)
+        self.back_rect = pygame.Rect(20, 15, 110, 46)
         self.cards = self._build_cards()
 
     def _build_cards(self):
@@ -41,6 +43,8 @@ class HomeScreen:
         return None
 
     def handle_tap(self, pos):
+        if self.back_rect.collidepoint(pos):
+            return "back"
         for card in self.cards:
             if card["rect"].collidepoint(pos):
                 return card["char"]
@@ -48,6 +52,11 @@ class HomeScreen:
 
     def draw(self):
         self.screen.fill(BG)
+
+        pygame.draw.rect(self.screen, (55, 55, 75), self.back_rect, border_radius=8)
+        back = self.font_label.render("< Back", True, WHITE)
+        self.screen.blit(back, (self.back_rect.centerx - back.get_width() // 2,
+                                self.back_rect.centery - back.get_height() // 2))
 
         title = self.font_title.render("Select a Game Series", True, WHITE)
         self.screen.blit(title, ((config.SCREEN_WIDTH - title.get_width()) // 2, 18))
