@@ -27,7 +27,7 @@ CHARACTERS = [
     {
         "id": "inkling_girl",
         "name": "Splatoon",
-        "color": (220, 80, 200),
+        "color": (255, 140, 0),
         "image": "assets/images/characters/inkling_girl.png",
         "songs": [
             {"title": "Splatoon - Booyah Base (Shrimp Kicks)", "label": "", "file": "assets/music/inkling_girl/inkling_girl_1.mp3"},
