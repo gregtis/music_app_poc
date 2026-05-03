@@ -14,29 +14,29 @@
         {
           "title": "Super Mario Bros. - Ground Theme",
           "file": "mario/mario_1.mp3",
-          "game": null,
-          "year": null,
-          "system": null,
-          "composer": null,
+          "game": "Super Mario Bros.",
+          "year": 1985,
+          "system": "NES",
+          "composer": "Koji Kondo",
           "difficulty": null,
           "tags": []
         },
         {
           "title": "Super Mario World - Overworld Theme",
           "file": "mario/mario_2.mp3",
-          "game": null,
-          "year": null,
-          "system": null,
-          "composer": null,
+          "game": "Super Mario World",
+          "year": 1990,
+          "system": "SNES",
+          "composer": "Koji Kondo",
           "difficulty": null,
           "tags": []
         },
         {
           "title": "Super Mario Bros. Wonder - Course Athletic",
           "file": "mario/mario_3.mp3",
-          "game": null,
-          "year": null,
-          "system": null,
+          "game": "Super Mario Bros. Wonder",
+          "year": 2023,
+          "system": "Switch",
           "composer": null,
           "difficulty": null,
           "tags": []
@@ -45,7 +45,7 @@
     },
     {
       "id": "link",
-      "name": "The Legend of Zelda",
+      "name": "The Legend of\nZelda",
       "color": [
         50,
         160,
@@ -56,30 +56,30 @@
         {
           "title": "The Legend of Zelda - Overworld",
           "file": "link/link_1.mp3",
-          "game": null,
-          "year": null,
-          "system": null,
-          "composer": null,
+          "game": "The Legend of Zelda",
+          "year": 1986,
+          "system": "NES",
+          "composer": "Koji Kondo",
           "difficulty": null,
           "tags": []
         },
         {
           "title": "Ocarina of Time - Hyrule Field",
           "file": "link/link_2.mp3",
-          "game": null,
-          "year": null,
-          "system": null,
-          "composer": null,
+          "game": "Ocarina of Time",
+          "year": 1998,
+          "system": "N64",
+          "composer": "Koji Kondo",
           "difficulty": null,
           "tags": []
         },
         {
           "title": "Breath of the Wild - Hateno Village",
           "file": "link/link_3.mp3",
-          "game": null,
-          "year": null,
-          "system": null,
-          "composer": null,
+          "game": "Breath of the Wild",
+          "year": 2017,
+          "system": "Switch",
+          "composer": "Yasuaki Iwata",
           "difficulty": null,
           "tags": []
         }
@@ -98,9 +98,9 @@
         {
           "title": "Splatoon - Booyah Base (Shrimp Kicks)",
           "file": "inkling_girl/inkling_girl_1.mp3",
-          "game": null,
-          "year": null,
-          "system": null,
+          "game": "Splatoon",
+          "year": 2015,
+          "system": "Wii U",
           "composer": null,
           "difficulty": null,
           "tags": []
@@ -108,9 +108,9 @@
         {
           "title": "Splatoon 2 - Color Pulse (Off the Hook)",
           "file": "inkling_girl/inkling_girl_2.mp3",
-          "game": null,
-          "year": null,
-          "system": null,
+          "game": "Splatoon 2",
+          "year": 2017,
+          "system": "Switch",
           "composer": null,
           "difficulty": null,
           "tags": []
@@ -118,9 +118,9 @@
         {
           "title": "Splatoon 3 - Sea Me Now (Front Roe)",
           "file": "inkling_girl/inkling_girl_3.mp3",
-          "game": null,
-          "year": null,
-          "system": null,
+          "game": "Splatoon 3",
+          "year": 2022,
+          "system": "Switch",
           "composer": null,
           "difficulty": null,
           "tags": []
