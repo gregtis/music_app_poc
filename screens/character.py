@@ -96,8 +96,8 @@ class CharacterScreen:
         self.screen.blit(title, (w // 2 - title.get_width() // 2, 158))
 
         # Label (era / remix) — only shown if non-empty
-        if song["label"]:
-            label = self.font_label.render(song["label"], True, DIM)
+        if song.get("label"):
+            label = self.font_label.render(song.get("label"), True, DIM)
             self.screen.blit(label, (w // 2 - label.get_width() // 2, 200))
 
         # Song counter
