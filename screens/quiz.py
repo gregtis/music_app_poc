@@ -13,16 +13,17 @@ NUM_QUESTIONS = 3
 
 
 class QuizScreen:
-    def __init__(self, screen):
+    def __init__(self, screen, series):
         self.screen = screen
+        self.series = series
         self.score = 0
         self.question_index = 0
         self.state = "asking"
 
         all_songs = [
-            (series, song)
-            for series in config.CHARACTERS
-            for song in series["songs"]
+            (s, song)
+            for s in series
+            for song in s["songs"]
         ]
         random.shuffle(all_songs)
         self.questions = all_songs[:NUM_QUESTIONS]
@@ -55,7 +56,7 @@ class QuizScreen:
 
     def _load_question(self):
         self.answer_series, self.song = self.questions[self.question_index]
-        self.options = config.CHARACTERS[:]
+        self.options = self.series[:]
         random.shuffle(self.options)
         self._play()
 
@@ -114,11 +115,11 @@ class QuizScreen:
             hint = self.font_btn.render("Listen to the song and make your pick...", True, DIM)
             self.screen.blit(hint, (w // 2 - hint.get_width() // 2, 120))
 
-            for rect, series in zip(self.option_rects, self.options):
-                pygame.draw.rect(self.screen, series["color"], rect, border_radius=RADIUS)
+            for rect, opt in zip(self.option_rects, self.options):
+                pygame.draw.rect(self.screen, opt["color"], rect, border_radius=RADIUS)
                 pygame.draw.rect(self.screen, WHITE, rect, width=3, border_radius=RADIUS)
 
-                lines = series["name"].split("\n")
+                lines = opt["name"].split("\n")
                 line_surfs = [self.font_btn.render(l, True, WHITE) for l in lines]
                 line_h = line_surfs[0].get_height()
                 total_h = line_h * len(line_surfs)

@@ -9,7 +9,9 @@ services:
       - /dev/snd:/dev/snd
     volumes:
       - /dev/input:/dev/input
+      - /home/gregtis/music_library:/library:ro
     environment:
       - SDL_VIDEODRIVER=offscreen
       - SDL_AUDIODRIVER=alsa
       - PYTHONUNBUFFERED=1
+      - LIBRARY_DIR=/library

@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0",
+  "series": [
+    {
+      "id": "mario",
+      "name": "Super Mario",
+      "color": [
+        220,
+        50,
+        50
+      ],
+      "image": null,
+      "songs": [
+        {
+          "title": "Super Mario Bros. - Ground Theme",
+          "file": "mario/mario_1.mp3",
+          "game": null,
+          "year": null,
+          "system": null,
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Super Mario World - Overworld Theme",
+          "file": "mario/mario_2.mp3",
+          "game": null,
+          "year": null,
+          "system": null,
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Super Mario Bros. Wonder - Course Athletic",
+          "file": "mario/mario_3.mp3",
+          "game": null,
+          "year": null,
+          "system": null,
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "link",
+      "name": "The Legend of Zelda",
+      "color": [
+        50,
+        160,
+        60
+      ],
+      "image": null,
+      "songs": [
+        {
+          "title": "The Legend of Zelda - Overworld",
+          "file": "link/link_1.mp3",
+          "game": null,
+          "year": null,
+          "system": null,
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Ocarina of Time - Hyrule Field",
+          "file": "link/link_2.mp3",
+          "game": null,
+          "year": null,
+          "system": null,
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Breath of the Wild - Hateno Village",
+          "file": "link/link_3.mp3",
+          "game": null,
+          "year": null,
+          "system": null,
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "inkling_girl",
+      "name": "Splatoon",
+      "color": [
+        255,
+        140,
+        0
+      ],
+      "image": null,
+      "songs": [
+        {
+          "title": "Splatoon - Booyah Base (Shrimp Kicks)",
+          "file": "inkling_girl/inkling_girl_1.mp3",
+          "game": null,
+          "year": null,
+          "system": null,
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Splatoon 2 - Color Pulse (Off the Hook)",
+          "file": "inkling_girl/inkling_girl_2.mp3",
+          "game": null,
+          "year": null,
+          "system": null,
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Splatoon 3 - Sea Me Now (Front Roe)",
+          "file": "inkling_girl/inkling_girl_3.mp3",
+          "game": null,
+          "year": null,
+          "system": null,
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        }
+      ]
+    }
+  ]
+}

@@ -9,8 +9,9 @@ RADIUS = 12
 
 
 class HomeScreen:
-    def __init__(self, screen):
+    def __init__(self, screen, series):
         self.screen = screen
+        self.series = series
         self.font_title = pygame.font.SysFont("monospace", 34, bold=True)
         self.font_name = pygame.font.SysFont("monospace", 26, bold=True)
         self.font_initial = pygame.font.SysFont("monospace", 80, bold=True)
@@ -20,13 +21,13 @@ class HomeScreen:
 
     def _build_cards(self):
         w, h = config.SCREEN_WIDTH, config.SCREEN_HEIGHT
-        n = len(config.CHARACTERS)
+        n = len(self.series)
         card_w = (w - MARGIN * (n + 1)) // n
         card_h = int(h * 0.68)
         card_y = h - card_h - MARGIN
 
         cards = []
-        for i, char in enumerate(config.CHARACTERS):
+        for i, char in enumerate(self.series):
             x = MARGIN + i * (card_w + MARGIN)
             rect = pygame.Rect(x, card_y, card_w, card_h)
             image = self._load_image(char["image"], card_w - 20, card_h - 60)
@@ -34,7 +35,7 @@ class HomeScreen:
         return cards
 
     def _load_image(self, path, w, h):
-        if os.path.exists(path):
+        if path and os.path.exists(path):
             try:
                 img = pygame.image.load(path).convert_alpha()
                 return pygame.transform.scale(img, (w, h))

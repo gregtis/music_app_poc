@@ -5,7 +5,9 @@ import sys
 import pygame
 
 import config
+import library
 import touch
+from screens.error import ErrorScreen
 from screens.home import HomeScreen
 from screens.character import CharacterScreen
 from screens.landing import LandingScreen
@@ -46,6 +48,29 @@ def _fb_geometry():
     return w, h, bpp
 
 
+def _render_frame(screen, on_pi, surf_fb, fb, fb_w, fb_h):
+    if on_pi:
+        scaled = pygame.transform.scale(screen, (fb_w, fb_h))
+        surf_fb.blit(scaled, (0, 0))
+        fb.seek(0)
+        fb.write(surf_fb.get_buffer().raw)
+    else:
+        pygame.display.flip()
+
+
+def _run_error(message, screen, on_pi, surf_fb, fb, fb_w, fb_h, clock):
+    error_screen = ErrorScreen(screen, message)
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
+            elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                return
+        error_screen.draw()
+        _render_frame(screen, on_pi, surf_fb, fb, fb_w, fb_h)
+        clock.tick(5)
+
+
 def main():
     pygame.init()
     pygame.mixer.init(frequency=44100, size=-16, channels=2, buffer=512)
@@ -75,11 +100,17 @@ def main():
         pygame.display.set_caption("Music App")
         pygame.mouse.set_visible(not on_pi)
 
+        clock = pygame.time.Clock()
+
+        series, lib_error = library.load(config.LIBRARY_DIR)
+        if lib_error:
+            _run_error(lib_error, screen, on_pi, surf_fb, fb, fb_w, fb_h, clock)
+            return
+
         touch.init(config.SCREEN_WIDTH, config.SCREEN_HEIGHT)
 
-        clock = pygame.time.Clock()
         landing = LandingScreen(screen)
-        home = HomeScreen(screen)
+        home = HomeScreen(screen, series)
         current = "landing"
         char_screen = None
         quiz_screen = None
@@ -92,12 +123,12 @@ def main():
                     return
                 elif event.type == pygame.MOUSEBUTTONUP:
                     current, char_screen, quiz_screen = _route(
-                        event.pos, current, landing, home, char_screen, quiz_screen, screen)
+                        event.pos, current, landing, home, char_screen, quiz_screen, screen, series)
 
             tap = touch.get_tap()
             if tap:
                 current, char_screen, quiz_screen = _route(
-                    tap, current, landing, home, char_screen, quiz_screen, screen)
+                    tap, current, landing, home, char_screen, quiz_screen, screen, series)
 
             if current == "landing":
                 landing.draw()
@@ -108,14 +139,7 @@ def main():
             elif current == "quiz":
                 quiz_screen.draw()
 
-            if on_pi:
-                scaled = pygame.transform.scale(screen, (fb_w, fb_h))
-                surf_fb.blit(scaled, (0, 0))
-                fb.seek(0)
-                fb.write(surf_fb.get_buffer().raw)
-            else:
-                pygame.display.flip()
-
+            _render_frame(screen, on_pi, surf_fb, fb, fb_w, fb_h)
             clock.tick(30)
 
     finally:
@@ -126,13 +150,13 @@ def main():
         pygame.quit()
 
 
-def _route(pos, current, landing, home, char_screen, quiz_screen, screen):
+def _route(pos, current, landing, home, char_screen, quiz_screen, screen, series):
     if current == "landing":
         result = landing.handle_tap(pos)
         if result == "browse":
             return "home", None, None
         if result == "quiz":
-            return "quiz", None, QuizScreen(screen)
+            return "quiz", None, QuizScreen(screen, series)
     elif current == "home":
         result = home.handle_tap(pos)
         if result == "back":
