@@ -22,12 +22,82 @@
           "tags": []
         },
         {
+          "title": "Super Mario Bros. 3 - Overworld",
+          "file": "mario/09. Overworld.mp3",
+          "game": "Super Mario Bros. 3",
+          "year": 1988,
+          "system": "NES",
+          "composer": "Koji Kondo",
+          "difficulty": null,
+          "tags": []
+        },
+        {
           "title": "Super Mario World - Overworld Theme",
           "file": "mario/mario_2.mp3",
           "game": "Super Mario World",
           "year": 1990,
           "system": "SNES",
           "composer": "Koji Kondo",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Yoshi's Island - Flower Garden",
+          "file": "mario/08. Flower Field.mp3",
+          "game": "Yoshi's Island",
+          "year": 1995,
+          "system": "SNES",
+          "composer": "Koji Kondo",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Super Mario 64 - Bob-omb Battlefield",
+          "file": "mario/10. Bob-omb Battlefield Theme.mp3",
+          "game": "Super Mario 64",
+          "year": 1996,
+          "system": "N64",
+          "composer": "Koji Kondo",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Super Mario Galaxy - Good Egg Galaxy",
+          "file": "mario/1-36. Good Egg Galaxy.mp3",
+          "game": "Super Mario Galaxy",
+          "year": 2007,
+          "system": "Wii",
+          "composer": "Koji Kondo",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "New Super Mario Bros. U - Acorn Plains",
+          "file": "mario/07. Acorn Plains (Level).mp3",
+          "game": "New Super Mario Bros. U",
+          "year": 2012,
+          "system": "Wii U",
+          "composer": "Shiho Fujii, Mahito Yokota",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Super Mario 3D World - Super Bell Hill",
+          "file": "mario/1-05. Super Bell Hill.mp3",
+          "game": "Super Mario 3D World",
+          "year": 2013,
+          "system": "Wii U",
+          "composer": "Koji Kondo, Mahito Yokota, Toru Minegishi, Yasuaki Iwata",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Super Mario Odyssey - Fossil Falls",
+          "file": "mario/1-14. Fossil Falls (Cascade Kingdom).mp3",
+          "game": "Super Mario Odyssey",
+          "year": 2017,
+          "system": "Switch",
+          "composer": "Naoto Kubo",
           "difficulty": null,
           "tags": []
         },
