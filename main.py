@@ -1,6 +1,7 @@
 import fcntl
 import os
 import sys
+import time
 
 import pygame
 
@@ -12,6 +13,8 @@ from screens.home import HomeScreen
 from screens.character import CharacterScreen
 from screens.landing import LandingScreen
 from screens.quiz import QuizScreen
+
+FADE_DURATION = 0.18   # seconds for screen cross-fade
 
 KDSETMODE = 0x4B3A
 KD_GRAPHICS = 0x01
@@ -114,6 +117,8 @@ def main():
         current = "landing"
         char_screen = None
         quiz_screen = None
+        prev_surface = None
+        fade_start   = None
 
         while True:
             for event in pygame.event.get():
@@ -122,13 +127,21 @@ def main():
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                     return
                 elif event.type == pygame.MOUSEBUTTONUP:
+                    old = current
                     current, char_screen, quiz_screen = _route(
                         event.pos, current, landing, home, char_screen, quiz_screen, screen, series)
+                    if current != old:
+                        prev_surface = screen.copy()
+                        fade_start   = time.time()
 
             tap = touch.get_tap()
             if tap:
+                old = current
                 current, char_screen, quiz_screen = _route(
                     tap, current, landing, home, char_screen, quiz_screen, screen, series)
+                if current != old:
+                    prev_surface = screen.copy()
+                    fade_start   = time.time()
 
             if current == "landing":
                 landing.draw()
@@ -137,7 +150,17 @@ def main():
             elif current == "character":
                 char_screen.draw()
             elif current == "quiz":
+                quiz_screen.update()
                 quiz_screen.draw()
+
+            if fade_start is not None:
+                elapsed = time.time() - fade_start
+                if elapsed < FADE_DURATION:
+                    prev_surface.set_alpha(int(255 * (1.0 - elapsed / FADE_DURATION)))
+                    screen.blit(prev_surface, (0, 0))
+                else:
+                    fade_start   = None
+                    prev_surface = None
 
             _render_frame(screen, on_pi, surf_fb, fb, fb_w, fb_h)
             clock.tick(30)

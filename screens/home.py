@@ -1,36 +1,56 @@
 import os
+import time
 import pygame
 import config
 
-BG = (15, 15, 25)
-WHITE = (255, 255, 255)
-MARGIN = 30
-RADIUS = 12
+WHITE      = (255, 255, 255)
+BACK_COLOR = (55, 55, 60)
+COLS       = 2
+MARGIN     = 20
+GAP        = 15
+HEADER     = 72
+RADIUS     = 14
 
 
 class HomeScreen:
     def __init__(self, screen, series):
-        self.screen = screen
-        self.series = series
-        self.font_title = pygame.font.SysFont("monospace", 34, bold=True)
-        self.font_name = pygame.font.SysFont("monospace", 26, bold=True)
-        self.font_initial = pygame.font.SysFont("monospace", 80, bold=True)
-        self.font_label = pygame.font.SysFont("monospace", 20)
-        self.back_rect = pygame.Rect(20, 15, 110, 46)
-        self.cards = self._build_cards()
+        self.screen  = screen
+        self.series  = series
+        self.font_title   = pygame.font.Font(config.FONT_PATH, 28)
+        self.font_name    = pygame.font.Font(config.FONT_PATH, 22)
+        self.font_initial = pygame.font.Font(config.FONT_PATH, 80)
+        self.font_label   = pygame.font.Font(config.FONT_PATH, 18)
+        self.font_title.bold = True
+        self.font_name.bold  = True
+        self.back_rect = pygame.Rect(20, 15, 100, 42)
+        self._pulses   = {}
+        self.cards     = self._build_cards()
+
+    def _card_dims(self):
+        n      = len(self.series)
+        n_rows = (n + COLS - 1) // COLS
+        card_w = (config.SCREEN_WIDTH - MARGIN * 2 - GAP * (COLS - 1)) // COLS
+        avail  = config.SCREEN_HEIGHT - HEADER - MARGIN * 2 - GAP * (n_rows - 1)
+        card_h = avail // n_rows
+        return card_w, card_h
 
     def _build_cards(self):
-        w, h = config.SCREEN_WIDTH, config.SCREEN_HEIGHT
-        n = len(self.series)
-        card_w = (w - MARGIN * (n + 1)) // n
-        card_h = int(h * 0.68)
-        card_y = h - card_h - MARGIN
-
-        cards = []
+        card_w, card_h = self._card_dims()
+        n      = len(self.series)
+        n_rows = (n + COLS - 1) // COLS
+        cards  = []
         for i, char in enumerate(self.series):
-            x = MARGIN + i * (card_w + MARGIN)
-            rect = pygame.Rect(x, card_y, card_w, card_h)
-            image = self._load_image(char["image"], card_w - 20, card_h - 60)
+            row = i // COLS
+            col = i % COLS
+            in_last_row       = (row == n_rows - 1)
+            last_row_count    = n - (n_rows - 1) * COLS
+            if in_last_row and last_row_count == 1:
+                x = (config.SCREEN_WIDTH - card_w) // 2
+            else:
+                x = MARGIN + col * (card_w + GAP)
+            y    = HEADER + MARGIN + row * (card_h + GAP)
+            rect = pygame.Rect(x, y, card_w, card_h)
+            image = self._load_image(char["image"], card_w - 20, card_h - 52)
             cards.append({"char": char, "rect": rect, "image": image})
         return cards
 
@@ -45,46 +65,62 @@ class HomeScreen:
 
     def handle_tap(self, pos):
         if self.back_rect.collidepoint(pos):
+            self._pulses["back"] = time.time()
             return "back"
-        for card in self.cards:
+        for i, card in enumerate(self.cards):
             if card["rect"].collidepoint(pos):
+                self._pulses[f"card_{i}"] = time.time()
                 return card["char"]
         return None
 
+    def _pulsed_rect(self, rect, btn_id):
+        t = self._pulses.get(btn_id)
+        if t is None:
+            return rect
+        elapsed = time.time() - t
+        if elapsed >= 0.18:
+            return rect
+        scale = 1.0 + 0.15 * (1.0 - elapsed / 0.18)
+        nw = int(rect.width * scale)
+        nh = int(rect.height * scale)
+        return pygame.Rect(rect.centerx - nw // 2, rect.centery - nh // 2, nw, nh)
+
     def draw(self):
-        self.screen.fill(BG)
+        self.screen.fill(config.BG_COLOR)
 
-        pygame.draw.rect(self.screen, (55, 55, 75), self.back_rect, border_radius=8)
+        br = self._pulsed_rect(self.back_rect, "back")
+        pygame.draw.rect(self.screen, BACK_COLOR, br, border_radius=8)
         back = self.font_label.render("< Back", True, WHITE)
-        self.screen.blit(back, (self.back_rect.centerx - back.get_width() // 2,
-                                self.back_rect.centery - back.get_height() // 2))
+        self.screen.blit(back, (br.centerx - back.get_width() // 2,
+                                br.centery - back.get_height() // 2))
 
-        title = self.font_title.render("Select a Game Series", True, WHITE)
+        title = self.font_title.render("Select a Series", True, WHITE)
         self.screen.blit(title, ((config.SCREEN_WIDTH - title.get_width()) // 2, 18))
 
-        for card in self.cards:
-            char = card["char"]
-            rect = card["rect"]
+        for i, card in enumerate(self.cards):
+            char  = card["char"]
+            rect  = self._pulsed_rect(card["rect"], f"card_{i}")
             color = char["color"]
 
             pygame.draw.rect(self.screen, color, rect, border_radius=RADIUS)
-            pygame.draw.rect(self.screen, WHITE, rect, width=3, border_radius=RADIUS)
 
             if card["image"]:
-                self.screen.blit(card["image"], (rect.x + 10, rect.y + 10))
+                img = card["image"]
+                ix  = rect.x + (rect.width - img.get_width()) // 2
+                self.screen.blit(img, (ix, rect.y + 10))
             else:
                 initial = self.font_initial.render(char["name"][0], True, WHITE)
                 self.screen.blit(
                     initial,
                     (rect.centerx - initial.get_width() // 2,
-                     rect.centery - initial.get_height() // 2 - 15),
+                     rect.centery - initial.get_height() // 2 - 12),
                 )
 
-            lines = char["name"].split("\n")
+            lines     = char["name"].split("\n")
             line_surfs = [self.font_name.render(l, True, WHITE) for l in lines]
-            line_h = line_surfs[0].get_height()
-            total_h = line_h * len(line_surfs)
-            y_start = rect.bottom - total_h - 10
+            line_h    = line_surfs[0].get_height()
+            total_h   = line_h * len(line_surfs)
+            y_start   = rect.bottom - total_h - 10
             for surf in line_surfs:
                 self.screen.blit(surf, (rect.centerx - surf.get_width() // 2, y_start))
                 y_start += line_h
