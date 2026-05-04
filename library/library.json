@@ -4,11 +4,7 @@
     {
       "id": "mario",
       "name": "Super Mario",
-      "color": [
-        220,
-        50,
-        50
-      ],
+      "color": [220, 50, 50],
       "image": null,
       "songs": [
         {
@@ -42,9 +38,9 @@
           "tags": []
         },
         {
-          "title": "Yoshi's Island - Flower Garden",
+          "title": "SMW2: Yoshi's Island - Flower Garden",
           "file": "mario/08. Flower Field.mp3",
-          "game": "Yoshi's Island",
+          "game": "SMW2: Yoshi's Island",
           "year": 1995,
           "system": "SNES",
           "composer": "Koji Kondo",
@@ -116,11 +112,7 @@
     {
       "id": "link",
       "name": "The Legend of\nZelda",
-      "color": [
-        50,
-        160,
-        60
-      ],
+      "color": [50, 160, 60],
       "image": null,
       "songs": [
         {
@@ -129,6 +121,16 @@
           "game": "The Legend of Zelda",
           "year": 1986,
           "system": "NES",
+          "composer": "Koji Kondo",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "A Link to the Past - Hyrule Castle",
+          "file": "link/06. Hyrule Castle.mp3",
+          "game": "A Link to the Past",
+          "year": 1991,
+          "system": "SNES",
           "composer": "Koji Kondo",
           "difficulty": null,
           "tags": []
@@ -144,6 +146,56 @@
           "tags": []
         },
         {
+          "title": "Link's Awakening - Overworld",
+          "file": "link/20. Overworld.mp3",
+          "game": "Link's Awakening",
+          "year": 1998,
+          "system": "GBC",
+          "composer": "Minako Hamano, Kozue Ishikawa, Kazumi Totaka",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Majora's Mask - Song of Storms",
+          "file": "link/012. Song of Storms.mp3",
+          "game": "Majora's Mask",
+          "year": 2000,
+          "system": "N64",
+          "composer": "Koji Kondo, Toru Minegishi",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "The Wind Waker - The Great Sea",
+          "file": "link/031. The Great Sea.mp3",
+          "game": "The Wind Waker",
+          "year": 2003,
+          "system": "GameCube",
+          "composer": "Kenta Nagata",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Twilight Princess - Kakariko Village",
+          "file": "link/93. Kakariko Village.mp3",
+          "game": "Twilight Princess",
+          "year": 2006,
+          "system": "Wii",
+          "composer": "Toru Minegishi, Asuka Ohta, Koji Kondo",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Skyward Sword - Skyloft",
+          "file": "link/10. Skyloft.mp3",
+          "game": "Skyward Sword",
+          "year": 2011,
+          "system": "Wii",
+          "composer": "Hajime Wakai, Shiho Fujii, Mahito Yokota, Takeshi Hama, Koji Kondo",
+          "difficulty": null,
+          "tags": []
+        },
+        {
           "title": "Breath of the Wild - Hateno Village",
           "file": "link/link_3.mp3",
           "game": "Breath of the Wild",
@@ -152,21 +204,27 @@
           "composer": "Yasuaki Iwata",
           "difficulty": null,
           "tags": []
+        },
+        {
+          "title": "Tears of the Kingdom - Tarrey Town",
+          "file": "link/11-09. Tarrey Town (Day).mp3",
+          "game": "Tears of the Kingdom",
+          "year": 2023,
+          "system": "Switch",
+          "composer": "Hajime Wakai, Manaka Kataoka, Maasa Miyoshi, Masato Ohashi, Tsukasa Usui",
+          "difficulty": null,
+          "tags": []
         }
       ]
     },
     {
       "id": "inkling_girl",
       "name": "Splatoon",
-      "color": [
-        255,
-        140,
-        0
-      ],
+      "color": [255, 140, 0],
       "image": null,
       "songs": [
         {
-          "title": "Splatoon - Booyah Base (Shrimp Kicks)",
+          "title": "Splatoon - Booyah Base",
           "file": "inkling_girl/inkling_girl_1.mp3",
           "game": "Splatoon",
           "year": 2015,
@@ -176,7 +234,27 @@
           "tags": []
         },
         {
-          "title": "Splatoon 2 - Color Pulse (Off the Hook)",
+          "title": "Splatoon - Splattack!",
+          "file": "inkling_girl/2-02. Splattack! - Squid Squad.mp3",
+          "game": "Splatoon",
+          "year": 2015,
+          "system": "Wii U",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Splatoon - Metalopod",
+          "file": "inkling_girl/2-06. Metalopod - Squid Squad.mp3",
+          "game": "Splatoon",
+          "year": 2015,
+          "system": "Wii U",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Splatoon 2 - Color Pulse",
           "file": "inkling_girl/inkling_girl_2.mp3",
           "game": "Splatoon 2",
           "year": 2017,
@@ -186,8 +264,58 @@
           "tags": []
         },
         {
-          "title": "Splatoon 3 - Sea Me Now (Front Roe)",
+          "title": "Splatoon 2 - Happy Little Workers",
+          "file": "inkling_girl/1-16. Happy Little Workers - Grizzco Industries.mp3",
+          "game": "Splatoon 2",
+          "year": 2017,
+          "system": "Switch",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Splatoon 2 - Rip Entry",
+          "file": "inkling_girl/2-3. Rip Entry - Wet Floor.mp3",
+          "game": "Splatoon 2",
+          "year": 2017,
+          "system": "Switch",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Splatoon 2 - Split & Splat",
+          "file": "inkling_girl/6-6. Split & Splat - Chirpy Chips.mp3",
+          "game": "Splatoon 2",
+          "year": 2017,
+          "system": "Switch",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Splatoon 3 - Sea Me Now",
           "file": "inkling_girl/inkling_girl_3.mp3",
+          "game": "Splatoon 3",
+          "year": 2022,
+          "system": "Switch",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Splatoon 3 - Sandy Side Up",
+          "file": "inkling_girl/01-009. Sandy Side Up__.mp3",
+          "game": "Splatoon 3",
+          "year": 2022,
+          "system": "Switch",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Splatoon 3 - No Quarters",
+          "file": "inkling_girl/01-018. No Quarters__.mp3",
           "game": "Splatoon 3",
           "year": 2022,
           "system": "Switch",
