@@ -540,6 +540,114 @@
           "tags": []
         }
       ]
+    },
+    {
+      "id": "animal_crossing",
+      "name": "Animal Crossing",
+      "color": [100, 200, 80],
+      "image": null,
+      "songs": [
+        {
+          "title": "Animal Crossing - 5 PM",
+          "file": "animal_crossing/33. 5 PM.mp3",
+          "game": "Animal Crossing",
+          "year": 2001,
+          "system": "GameCube",
+          "composer": "Kenta Nagata",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Animal Crossing - 9 PM (Cherry Blossoms)",
+          "file": "animal_crossing/85. 9 PM (Cherry Blossoms).mp3",
+          "game": "Animal Crossing",
+          "year": 2001,
+          "system": "GameCube",
+          "composer": "Kenta Nagata",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Animal Crossing: Wild World - Title Theme",
+          "file": "animal_crossing/01. Title.mp3",
+          "game": "Animal Crossing: Wild World",
+          "year": 2005,
+          "system": "DS",
+          "composer": "Kazumi Totaka, Asuka Ohta",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Animal Crossing: Wild World - Museum",
+          "file": "animal_crossing/23. Museum.mp3",
+          "game": "Animal Crossing: Wild World",
+          "year": 2005,
+          "system": "DS",
+          "composer": "Kazumi Totaka, Asuka Ohta",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Animal Crossing: City Folk - The Roost",
+          "file": "animal_crossing/032 - The Roost.mp3",
+          "game": "Animal Crossing: City Folk",
+          "year": 2008,
+          "system": "Wii",
+          "composer": "Kazumi Totaka, Manaka Tominaga, Shiho Fujii",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Animal Crossing: City Folk - 11 AM (Rain)",
+          "file": "animal_crossing/130 - 11 AM (Rain).mp3",
+          "game": "Animal Crossing: City Folk",
+          "year": 2008,
+          "system": "Wii",
+          "composer": "Kazumi Totaka, Manaka Tominaga, Shiho Fujii",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Animal Crossing: New Leaf - 9 PM",
+          "file": "animal_crossing/034 - 9 PM.mp3",
+          "game": "Animal Crossing: New Leaf",
+          "year": 2012,
+          "system": "3DS",
+          "composer": "Kazumi Totaka, Manaka Kataoka, Atsuko Asahi",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Animal Crossing: New Leaf - 5 PM (Snowy)",
+          "file": "animal_crossing/078 - 5 PM - Snowy.mp3",
+          "game": "Animal Crossing: New Leaf",
+          "year": 2012,
+          "system": "3DS",
+          "composer": "Kazumi Totaka, Manaka Kataoka, Atsuko Asahi",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Animal Crossing: New Horizons - 10:00 AM (Sunny)",
+          "file": "animal_crossing/1-12. 1000 AM (Sunny).mp3",
+          "game": "Animal Crossing: New Horizons",
+          "year": 2020,
+          "system": "Switch",
+          "composer": "Yumi Takahashi",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Animal Crossing: New Horizons - 6:00 PM (Rainy)",
+          "file": "animal_crossing/2-19. 600 PM (Rainy).mp3",
+          "game": "Animal Crossing: New Horizons",
+          "year": 2020,
+          "system": "Switch",
+          "composer": "Yasuaki Iwata",
+          "difficulty": null,
+          "tags": []
+        }
+      ]
     }
   ]
 }
