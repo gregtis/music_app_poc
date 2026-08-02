@@ -324,6 +324,115 @@
           "tags": []
         }
       ]
+    },
+    {
+      "id": "mario_kart",
+      "name": "Mario Kart",
+      "color": [30, 140, 220],
+      "image": null,
+      "songs": [
+        {
+          "title": "Donut Plains",
+          "file": "mario_kart/1-06. Donut Plains.mp3",
+          "game": "Super Mario Kart",
+          "year": 1992,
+          "system": "SNES",
+          "composer": "Soyo Oka",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Frappe Snowland, Sherbet Land",
+          "file": "mario_kart/09. Frappe Snowland - Sherbet Land.mp3",
+          "game": "Mario Kart 64",
+          "year": 1996,
+          "system": "N64",
+          "composer": "Kenta Nagata",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Mushroom Bridge, Mushroom City",
+          "file": "mario_kart/22. Mushroom Bridge - Mushroom City.mp3",
+          "game": "Mario Kart: Double Dash!!",
+          "year": 2003,
+          "system": "GameCube",
+          "composer": "Shinobu Tanaka, Kenta Nagata",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Moo Moo Meadows",
+          "file": "mario_kart/27. Moo Moo Meadows.mp3",
+          "game": "Mario Kart Wii",
+          "year": 2008,
+          "system": "Wii",
+          "composer": "Asuka Ohta, Ryo Nagamatsu",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Dolphin Shoals",
+          "file": "mario_kart/1-16. Dolphin Shoals.mp3",
+          "game": "Mario Kart 8",
+          "year": 2014,
+          "system": "Wii U",
+          "composer": "Atsuko Asahi",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Cloudtop Cruise",
+          "file": "mario_kart/1-21. Cloudtop Cruise.mp3",
+          "game": "Mario Kart 8",
+          "year": 2014,
+          "system": "Wii U",
+          "composer": "Atsuko Asahi",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Big Blue",
+          "file": "mario_kart/3-25. Big Blue.mp3",
+          "game": "Mario Kart 8",
+          "year": 2014,
+          "system": "Wii U",
+          "composer": "Kenta Nagata",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Mario Bros. Circuit",
+          "file": "mario_kart/1-04. Mario Bros. Circuit.mp3",
+          "game": "Mario Kart World",
+          "year": 2025,
+          "system": "Switch 2",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Dino Dino Jungle",
+          "file": "mario_kart/1-84. Dino Dino Jungle.mp3",
+          "game": "Mario Kart World",
+          "year": 2025,
+          "system": "Switch 2",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Whistlestop Summit",
+          "file": "mario_kart/1-12. Whistlestop Summit.mp3",
+          "game": "Mario Kart World",
+          "year": 2025,
+          "system": "Switch 2",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        }
+      ]
     }
   ]
 }
+
