@@ -58,7 +58,8 @@ class QuizScreen:
 
     def _load_question(self):
         self.answer_series, self.song = self.questions[self.question_index]
-        self.options = self.series[:]
+        wrong = [s for s in self.series if s["id"] != self.answer_series["id"]]
+        self.options = random.sample(wrong, min(2, len(wrong))) + [self.answer_series]
         random.shuffle(self.options)
         self._play()
 
