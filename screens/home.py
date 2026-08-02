@@ -5,7 +5,7 @@ import config
 
 WHITE      = (255, 255, 255)
 BACK_COLOR = (55, 55, 60)
-COLS       = 2
+COLS       = 4
 MARGIN     = 20
 GAP        = 15
 HEADER     = 72
@@ -17,8 +17,8 @@ class HomeScreen:
         self.screen  = screen
         self.series  = series
         self.font_title   = pygame.font.Font(config.FONT_PATH, 28)
-        self.font_name    = pygame.font.Font(config.FONT_PATH, 22)
-        self.font_initial = pygame.font.Font(config.FONT_PATH, 80)
+        self.font_name    = pygame.font.Font(config.FONT_PATH, 16)
+        self.font_initial = pygame.font.Font(config.FONT_PATH, 52)
         self.font_label   = pygame.font.Font(config.FONT_PATH, 18)
         self.font_title.bold = True
         self.font_name.bold  = True
@@ -44,8 +44,9 @@ class HomeScreen:
             col = i % COLS
             in_last_row       = (row == n_rows - 1)
             last_row_count    = n - (n_rows - 1) * COLS
-            if in_last_row and last_row_count == 1:
-                x = (config.SCREEN_WIDTH - card_w) // 2
+            if in_last_row and last_row_count < COLS:
+                row_w = last_row_count * card_w + (last_row_count - 1) * GAP
+                x = (config.SCREEN_WIDTH - row_w) // 2 + col * (card_w + GAP)
             else:
                 x = MARGIN + col * (card_w + GAP)
             y    = HEADER + MARGIN + row * (card_h + GAP)

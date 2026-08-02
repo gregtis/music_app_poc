@@ -648,6 +648,114 @@
           "tags": []
         }
       ]
+    },
+    {
+      "id": "kirby",
+      "name": "Kirby",
+      "color": [235, 100, 155],
+      "image": null,
+      "songs": [
+        {
+          "title": "Kirby's Adventure - Green Greens",
+          "file": "kirby/25. Green Greens.mp3",
+          "game": "Kirby's Adventure",
+          "year": 1993,
+          "system": "NES",
+          "composer": "Hirokazu Ando, Jun Ishikawa",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Kirby Super Star - Gourmet Race - Pumpkin Grand",
+          "file": "kirby/24. Gourmet Race.mp3",
+          "game": "Kirby Super Star",
+          "year": 1996,
+          "system": "SNES",
+          "composer": "Jun Ishikawa",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Kirby's Dream Land 3 - Iceberg Map",
+          "file": "kirby/23. Iceberg Map.mp3",
+          "game": "Kirby's Dream Land 3",
+          "year": 1997,
+          "system": "SNES",
+          "composer": "Jun Ishikawa",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Kirby 64: The Crystal Shards - Quiet Forest",
+          "file": "kirby/1-11. Quiet Forest.mp3",
+          "game": "Kirby 64: The Crystal Shards",
+          "year": 2000,
+          "system": "N64",
+          "composer": "Jun Ishikawa, Hirokazu Ando",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Kirby: Triple Deluxe - Hypernova All-Stars",
+          "file": "kirby/2-07. Hypernova All-Stars (Hypernova Boss Battle).mp3",
+          "game": "Kirby: Triple Deluxe",
+          "year": 2014,
+          "system": "3DS",
+          "composer": "Hirokazu Ando",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Kirby: Planet Robobot - Flight of Azure",
+          "file": "kirby/1-17. Flight of Azure (Robobot Jet Mode).mp3",
+          "game": "Kirby: Planet Robobot",
+          "year": 2016,
+          "system": "3DS",
+          "composer": "Hirokazu Ando",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Kirby: Star Allies - Inner Sanctum",
+          "file": "kirby/2-05 Inner Sanctum.mp3",
+          "game": "Kirby: Star Allies",
+          "year": 2018,
+          "system": "Switch",
+          "composer": "Hirokazu Ando",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Kirby and the Forgotten Land - Waddle Dee Town",
+          "file": "kirby/030. Waddle Dee Town.mp3",
+          "game": "Kirby and the Forgotten Land",
+          "year": 2022,
+          "system": "Switch",
+          "composer": "Hirokazu Ando",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Kirby's Return to Dream Land Deluxe - A Visitor from Afar",
+          "file": "kirby/001. A Visitor from Afar.mp3",
+          "game": "Kirby's Return to Dream Land Deluxe",
+          "year": 2023,
+          "system": "Switch",
+          "composer": "Hirokazu Ando",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Kirby Air Riders - Cyberion Highway",
+          "file": "kirby/1-07. Cyberion Highway.mp3",
+          "game": "Kirby Air Riders",
+          "year": 2025,
+          "system": "Switch 2",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        }
+      ]
     }
   ]
 }
