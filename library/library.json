@@ -332,7 +332,7 @@
       "image": null,
       "songs": [
         {
-          "title": "Donut Plains",
+          "title": "Super Mario Kart - Donut Plains",
           "file": "mario_kart/1-06. Donut Plains.mp3",
           "game": "Super Mario Kart",
           "year": 1992,
@@ -342,7 +342,7 @@
           "tags": []
         },
         {
-          "title": "Frappe Snowland, Sherbet Land",
+          "title": "Mario Kart 64 - Frappe Snowland, Sherbet Land",
           "file": "mario_kart/09. Frappe Snowland - Sherbet Land.mp3",
           "game": "Mario Kart 64",
           "year": 1996,
@@ -352,7 +352,7 @@
           "tags": []
         },
         {
-          "title": "Mushroom Bridge, Mushroom City",
+          "title": "Mario Kart: Double Dash!! - Mushroom Bridge, Mushroom City",
           "file": "mario_kart/22. Mushroom Bridge - Mushroom City.mp3",
           "game": "Mario Kart: Double Dash!!",
           "year": 2003,
@@ -362,7 +362,7 @@
           "tags": []
         },
         {
-          "title": "Moo Moo Meadows",
+          "title": "Mario Kart Wii - Moo Moo Meadows",
           "file": "mario_kart/27. Moo Moo Meadows.mp3",
           "game": "Mario Kart Wii",
           "year": 2008,
@@ -372,7 +372,7 @@
           "tags": []
         },
         {
-          "title": "Dolphin Shoals",
+          "title": "Mario Kart 8 - Dolphin Shoals",
           "file": "mario_kart/1-16. Dolphin Shoals.mp3",
           "game": "Mario Kart 8",
           "year": 2014,
@@ -382,7 +382,7 @@
           "tags": []
         },
         {
-          "title": "Cloudtop Cruise",
+          "title": "Mario Kart 8 - Cloudtop Cruise",
           "file": "mario_kart/1-21. Cloudtop Cruise.mp3",
           "game": "Mario Kart 8",
           "year": 2014,
@@ -392,7 +392,7 @@
           "tags": []
         },
         {
-          "title": "Big Blue",
+          "title": "Mario Kart 8 - Big Blue",
           "file": "mario_kart/3-25. Big Blue.mp3",
           "game": "Mario Kart 8",
           "year": 2014,
@@ -402,7 +402,7 @@
           "tags": []
         },
         {
-          "title": "Mario Bros. Circuit",
+          "title": "Mario Kart World - Mario Bros. Circuit",
           "file": "mario_kart/1-04. Mario Bros. Circuit.mp3",
           "game": "Mario Kart World",
           "year": 2025,
@@ -412,7 +412,7 @@
           "tags": []
         },
         {
-          "title": "Dino Dino Jungle",
+          "title": "Mario Kart World - Dino Dino Jungle",
           "file": "mario_kart/1-84. Dino Dino Jungle.mp3",
           "game": "Mario Kart World",
           "year": 2025,
@@ -422,12 +422,120 @@
           "tags": []
         },
         {
-          "title": "Whistlestop Summit",
+          "title": "Mario Kart World - Whistlestop Summit",
           "file": "mario_kart/1-12. Whistlestop Summit.mp3",
           "game": "Mario Kart World",
           "year": 2025,
           "system": "Switch 2",
           "composer": null,
+          "difficulty": null,
+          "tags": []
+        }
+      ]
+    },
+    {
+      "id": "donkey_kong",
+      "name": "Donkey Kong",
+      "color": [210, 155, 20],
+      "image": null,
+      "songs": [
+        {
+          "title": "Donkey Kong - Radar BGM",
+          "file": "donkey_kong/03. Round Start BGM.mp3",
+          "game": "Donkey Kong",
+          "year": 1983,
+          "system": "Arcade",
+          "composer": "Yukio Kaneoka",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Donkey Kong Country - Aquatic Ambiance",
+          "file": "donkey_kong/07. Aquatic Ambiance.mp3",
+          "game": "Donkey Kong Country",
+          "year": 1994,
+          "system": "SNES",
+          "composer": "Dave Wise",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Donkey Kong Country - Simian Segue",
+          "file": "donkey_kong/02. Simian Segue.mp3",
+          "game": "Donkey Kong Country",
+          "year": 1994,
+          "system": "SNES",
+          "composer": "Eveline Fischer",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Donkey Kong Country 2 - Stickerbrush Symphony",
+          "file": "donkey_kong/1-18. Stickerbush Symphony.mp3",
+          "game": "Donkey Kong Country 2",
+          "year": 1995,
+          "system": "SNES",
+          "composer": "Dave Wise",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Donkey Kong Country 3 - Stilt Village",
+          "file": "donkey_kong/06 Stilt Village.mp3",
+          "game": "Donkey Kong Country 3",
+          "year": 1996,
+          "system": "SNES",
+          "composer": "Eveline Fischer",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Donkey Kong 64 - DK Rap",
+          "file": "donkey_kong/002 - DK Rap.mp3",
+          "game": "Donkey Kong 64",
+          "year": 1999,
+          "system": "N64",
+          "composer": "Grant Kirkhope",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Donkey Kong Country Returns - Vine Valley",
+          "file": "donkey_kong/87. Vine Valley.mp3",
+          "game": "Donkey Kong Country Returns",
+          "year": 2010,
+          "system": "Wii",
+          "composer": "Kenji Yamamoto",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "DKC: Tropical Freeze - Windmill Hills",
+          "file": "donkey_kong/2-01. Windmill Hills.mp3",
+          "game": "Donkey Kong Country: Tropical Freeze",
+          "year": 2014,
+          "system": "Wii U",
+          "composer": "David Wise",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "DKC: Tropical Freeze - Scorch 'N' Torch",
+          "file": "donkey_kong/3-04. Scorch 'N' Torch.mp3",
+          "game": "Donkey Kong Country: Tropical Freeze",
+          "year": 2014,
+          "system": "Wii U",
+          "composer": "David Wise",
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Donkey Kong Bananza - Breaking Through (Heart of Gold)",
+          "file": "donkey_kong/109. Breaking Through (Heart of Gold).mp3",
+          "game": "Donkey Kong Bananza",
+          "year": 2025,
+          "system": "Switch 2",
+          "composer": "Jenny Kidd, Nauto Kubo, Daisuke Matsuoka, Reika Nakai, Yuri Goto, Tsukasa Usui",
           "difficulty": null,
           "tags": []
         }
