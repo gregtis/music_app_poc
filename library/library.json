@@ -756,6 +756,114 @@
           "tags": []
         }
       ]
+    },
+    {
+      "id": "yoshi",
+      "name": "Yoshi",
+      "color": [130, 210, 30],
+      "image": null,
+      "songs": [
+        {
+          "title": "Yoshi's Story - Yoshi's Song",
+          "file": "yoshi/03. Yoshi's Song.mp3",
+          "game": "Yoshi's Story",
+          "year": 1997,
+          "system": "N64",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Yoshi's Story - Love Is In The Air",
+          "file": "yoshi/11. Love Is In The Air.mp3",
+          "game": "Yoshi's Story",
+          "year": 1997,
+          "system": "N64",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Yoshi's Story - Yo-Yo-Yoshi",
+          "file": "yoshi/09. Yo-Yo-Yoshi.mp3",
+          "game": "Yoshi's Story",
+          "year": 1997,
+          "system": "N64",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Yoshi Touch & Go - Flower Garden",
+          "file": "yoshi/05. Flower Garden.mp3",
+          "game": "Yoshi Touch & Go",
+          "year": 2005,
+          "system": "DS",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Yoshi Touch & Go - Athletic",
+          "file": "yoshi/12. Athletic.mp3",
+          "game": "Yoshi Touch & Go",
+          "year": 2005,
+          "system": "DS",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Yoshi's Island DS - Wildlands",
+          "file": "yoshi/16. Wildlands.mp3",
+          "game": "Yoshi's Island DS",
+          "year": 2006,
+          "system": "DS",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Yoshi's New Island - Bandit Valley",
+          "file": "yoshi/2-06. Bandit Valley.mp3",
+          "game": "Yoshi's New Island",
+          "year": 2014,
+          "system": "3DS",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Yoshi's Woolly World - Clawdaddy Beach",
+          "file": "yoshi/Clawdaddy Beach.mp3",
+          "game": "Yoshi's Woolly World",
+          "year": 2015,
+          "system": "Wii U",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Yoshi's Woolly World - Scarf Roll Scamper",
+          "file": "yoshi/1-14 Scarf Roll Scamper.mp3",
+          "game": "Yoshi's Woolly World",
+          "year": 2015,
+          "system": "Wii U",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        },
+        {
+          "title": "Yoshi's Crafted World - Water/Space Level",
+          "file": "yoshi/15. Water-Space Level.mp3",
+          "game": "Yoshi's Crafted World",
+          "year": 2019,
+          "system": "Switch",
+          "composer": null,
+          "difficulty": null,
+          "tags": []
+        }
+      ]
     }
   ]
 }
